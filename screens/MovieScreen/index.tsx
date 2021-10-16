@@ -5,11 +5,12 @@ import {
   Entypo,
   AntDesign,
   Feather,
-  Ionicons,
+  FontAwesome,
 } from "@expo/vector-icons";
 import { Text, View } from "../../components/Themed";
 import { styles } from "./styles";
 import movie from "../../assets/data/movie";
+import EpisodeItem from "../../components/EpisodeItem";
 
 const MovieDetailsScreen = () => {
   const firstEpisode = movie.seasons.items[0].episodes.items[0];
@@ -21,7 +22,9 @@ const MovieDetailsScreen = () => {
           uri: firstEpisode.poster,
         }}
       />
+
       <View style={{ padding: 12, backgroundColor: "black" }}>
+        <EpisodeItem episode={firstEpisode} />
         <Text style={styles.title}>{movie.title}</Text>
         <View style={{ backgroundColor: "black", flexDirection: "row" }}>
           <Text style={styles.match}>98% match</Text>
@@ -85,7 +88,7 @@ const MovieDetailsScreen = () => {
               marginHorizontal: 20,
             }}
           >
-            <Ionicons name="share-social" color="white" size={24} />
+            <FontAwesome name="send-o" color="white" size={24} />
             <Text style={{ color: "darkgrey", marginTop: 5 }}>Share </Text>
           </View>
         </View>
